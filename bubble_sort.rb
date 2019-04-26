@@ -2,18 +2,14 @@ def bubble_sort(array)
   not_sorted = true
   n = array.length - 1
   while not_sorted
+    not_sorted = false
     (0...n).each do |i|
-      if array[i] > array[i + 1]
-        print "#{i} "
-        not_sorted = true
-        temp = array[i]
-        array[i] = array[i + 1]
-        array[i + 1] = temp
-      elsif (array[i+1] == array[-1])&&(array[0]<array[1])
-        not_sorted = false
-      end
+      next unless array[i] > array[i + 1]
+
+      array[i], array[i + 1] = array[i + 1], array[i]
+      not_sorted = true
     end
-    p array
+    n -= 1
   end
   array
 end
