@@ -14,3 +14,12 @@ linters:
       # The ABC size is a calculated magnitude, so this number can be an Integer or
       # a Float.
       Max: 20
+    Metrics/MethodLength:
+      Description: 'Avoid methods longer than 10 lines of code.'
+      StyleGuide: '#short-methods'
+      Enabled: true
+      VersionAdded: '0.25'
+      VersionChanged: '0.59.2'
+      CountComments: false  # count full line comments?
+      Max: 15
+      ExcludedMethods: [] 
