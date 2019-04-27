@@ -5,7 +5,7 @@
 This is the first project of the main `Ruby` curriculum at [Microverse](https://www.microverse.org/) - @microverseinc
 
 
-### [Assignment link](https://www.theodinproject.com/courses/html5-and-css3/lessons/design-your-own-grid-based-framework)
+### [Assignment link](https://www.theodinproject.com/courses/ruby-programming/lessons/advanced-building-blocks)
 
 #### The objective are as follows:
 
@@ -49,7 +49,7 @@ def bubble_sort_by(array)
     end
     n -= 1
   end
-  p array
+  array
 end
 
 bubble_sort_by(['hi', 'hello', 'hey']) do |left, right|
