@@ -13,4 +13,4 @@ linters:
       VersionChanged: '0.66'
       # The ABC size is a calculated magnitude, so this number can be an Integer or
       # a Float.
-      Max: 15
+      Max: 20
