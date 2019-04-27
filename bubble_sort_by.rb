@@ -10,12 +10,15 @@ def bubble_sort_by(array)
     end
     n -= 1
   end
-  p array
+  array
 end
 
-bubble_sort_by(['hi', 'hello', 'hey']) do |left, right|
+array = ['hi', 'hello', 'hey']
+bubble_sort_by(array) do |left, right|
   left.length <=> right.length
 end
-# ["hi", "hey", "hello"]
+p array
+
+#=> ["hi", "hey", "hello"]
 
 # rubocop:enable Metrics/AbcSize, Style/WordArray
