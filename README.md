@@ -13,19 +13,24 @@ This is the first project of the main `Ruby` curriculum at [Microverse](https://
 
 ``` rb
 def bubble_sort(array)
-  not_sorted = true
-  n = array.length - 1
+  not_sorted = true, n = array.length - 1
+  sorting(not_sorted, array, n)
+  array
+end
+
+def sorting(not_sorted, array, index)
   while not_sorted
     not_sorted = false
-    (0...n).each do |i|
+    (0...index).each do |i|
       next unless array[i] > array[i + 1]
+
       array[i], array[i + 1] = array[i + 1], array[i]
       not_sorted = true
     end
-    n -= 1
+    index -= 1
   end
-  array
 end
+
 p bubble_sort([4, 3, 78, 2, 0, 2])
 #=> [0,2,2,3,4,78]
 ```
@@ -34,19 +39,19 @@ p bubble_sort([4, 3, 78, 2, 0, 2])
 
 ``` rb
 def bubble_sort_by(array)
-  not_sorted = true
-  n = array.length - 1
+  not_sorted = true, n = array.length - 1
   while not_sorted
     not_sorted = false
     (0...n).each do |i|
       next unless yield(array[i], array[i + 1]) > 0
-      array[i], array[i + 1] = array[i + 1], array[i]
-      not_sorted = true
+
+      array[i], array[i + 1] = array[i + 1], array[i], not_sorted = true
     end
     n -= 1
   end
   p array
 end
+
 bubble_sort_by(['hi', 'hello', 'hey']) do |left, right|
   left.length <=> right.length
 end
