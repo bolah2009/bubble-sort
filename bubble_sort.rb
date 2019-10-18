@@ -1,14 +1,28 @@
+# frozen_string_literal: true
+
 def bubble_sort(array)
-  not_sorted = true, n = array.length - 1
-  sorting(not_sorted, array, n)
+  sorting(array)
   array
 end
 
-def sorting(not_sorted, array, index)
+def bubble_sort_by(array, &block)
+  raise LocalJumpError, 'no block given' unless block
+
+  sorting(array, &block)
+  array
+end
+
+def sorting(array, &block)
+  index = array.length - 1
+  not_sorted = true
   while not_sorted
     not_sorted = false
     (0...index).each do |i|
-      next unless array[i] > array[i + 1]
+      if block
+        next unless block.call(array[i], array[i + 1]).positive?
+      else
+        next unless array[i] > array[i + 1]
+      end
 
       array[i], array[i + 1] = array[i + 1], array[i]
       not_sorted = true
@@ -16,6 +30,3 @@ def sorting(not_sorted, array, index)
     index -= 1
   end
 end
-
-p bubble_sort([4, 3, 78, 2, 0, 2])
-#=> [0,2,2,3,4,78]
